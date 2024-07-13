@@ -1,8 +1,11 @@
 # Introduction to Python
 ## Table of Contents
-[Exercise 1](/Exercise%201.1#exercise-1-1)
+- [Exercise 1.1](/Exercise%201.1#exercise-1-1)
 
 ## Exercise 1 | Getting Started with Python
+
+<details>
+<summary>Step by Step</summary>
 
 ### Step 1: Install Python
 * Install Python on your system or check that Python is already installed
@@ -54,3 +57,7 @@
 
 ![Screenshot of using the requirements.txt file with pip install](/Exercise%201.1/Step%205c_%20Pip%20install%20requirements.png)
 </details>
+  
+</details>
+
+## Exercise 2 | Data Types in Python
