@@ -196,7 +196,7 @@ Users should be able to create and modify recipes with ingredients, cooking time
     <details>
       <summary>Screenshot</summary>
       
-    ![Screenshot of New Recipes](/Exercise%201.3/Step%203_Define%20Function.png)
+    ![Screenshot of New Recipes](/Exercise%201.3/Step%203_Define%20function.png)
     
     </details>
   
