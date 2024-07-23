@@ -16,6 +16,7 @@ Users should be able to create and modify recipes with ingredients, cooking time
 ## Table of Contents
 - [Exercise 1.1](/#exercise-1--getting-started-with-python)
 - [Exercise 1.2](/#exercise-2--data-types-in-python)
+- [Exercise 1.3](/#exercise-3--operators-and-functions-in-python)
 
 ### Exercise 1 | Getting Started with Python
 
@@ -145,4 +146,114 @@ Users should be able to create and modify recipes with ingredients, cooking time
     ![Screenshot of Ingredient Lists](/Exercise%201.2/Step%204_Ingredient%20Lists.png)
     
     </details>
+  </details>
+
+### Exercise 3 | Operators and Functions in Python
+
+- Create script for user recipe input
+
+  <details>
+
+  <summary>Data Structures</summary>
+  
+  * Each recipe inputed by the user has the following structure:
+    
+    `recipe = {'Name': str, 'Cooking Time:' int, 'Ingredients': [list]}, 'Difficulty': str`
+  
+  * Each recipe entered by the user will be added to `recipes_list` and new ingredients will be added to `ingredients_list`
+  </details>
+
+  <details>
+  
+  <summary>Step-by-Step</summary>
+  
+  #### Step 1: Creating Exercise_1.3.py
+  * Creating a Python script in VSCode
+  
+    <details>
+    
+      <summary>Screenshot</summary>
+      
+    ![Screenshot of Script](/Exercise%201.3/Step%201_Create%20script.png)
+    
+    </details>
+  
+  #### Step 2: Initialize Empty Lists
+  * Initialized `recipes_list` that will hold all recipe dictionaries
+  * Initialized `ingredients_list` that will hold all the ingredients
+  
+    <details>
+      <summary>Screenshot</summary>
+    
+    ![Screenshot of Empty Lists](/Exercise%201.3/Step%202_Empty%20lists.png)
+    
+    </details>
+  
+  #### Step 3: Define `take_recipe` function
+  * Takes user input to create `Name`, `Cooking Time`, and `Ingredients` variables
+  * Stores variables inside `recipe` dictionary
+  
+    <details>
+      <summary>Screenshot</summary>
+      
+    ![Screenshot of New Recipes](/Exercise%201.3/Step%203_Define%20Function.png)
+    
+    </details>
+  
+  #### Step 4: Prompt user for recipe amount
+  * Asks user to input how many recipes they want to enter
+  
+    <details>
+      <summary>Screenshot</summary>
+      
+    ![Screenshot of Ingredient Lists](/Exercise%201.3/Step%204_Variable%20n.png)
+    
+    </details>
+
+  #### Step 5: Create `for` loop to run `n` times
+  * Runs `take_recipe()` for how many times indicated by user and appends each recipe to `recipes_list`
+  * Runs `for` loop to check if recipe's ingredients already exist in `ingredients_list`, if not, appends ingredient to list
+  
+    <details>
+      <summary>Screenshot</summary>
+      
+    ![Screenshot of Ingredient Lists](/Exercise%201.3/Step%205_Recipe%20for%20Loop.png)
+    
+    </details>
+
+
+  #### Step 6: Calculate recipe difficulty
+  * Checks each recipe for cooking time and ingredients to set difficulty level
+    * **easy**: < 10 mins and < 4 ingredients
+    * **medium**: < 10 mins and >= 4 ingredients
+    * **intermediate**: >= 10 mins and < 4 ingredients
+    * **hard**: >= 10 mins and >= 4 ingredients
+  * Display recipes in the following format:
+
+  ```python
+  Name: <name>
+  Cooking Time (min): <cooking_time>
+  Ingredients: <ingredients>
+  Difficulty: <difficulty>
+  ```
+  
+    <details>
+      <summary>Screenshot</summary>
+      
+    ![Screenshot of Ingredient Lists](/Exercise%201.3/Step%206a_Difficulty%20for%20Loop.png)
+
+    ![Screenshot of Ingredient Lists](/Exercise%201.3/Step%206b_Display%20recipe.png)
+    
+    </details>
+
+  #### Step 7: Sort and print `ingredients_list`
+  * Sorts `ingredients_list` alphabetically and prints each ingredient
+  
+    <details>
+      <summary>Screenshot</summary>
+      
+    ![Screenshot of Ingredient Lists](/Exercise%201.3/Step%207_Show%20ingredients_list.png)
+    
+    </details>
+
   </details>
