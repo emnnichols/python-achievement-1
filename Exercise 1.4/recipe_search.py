@@ -1,5 +1,8 @@
 import pickle
 
+# Function that is called for recipes matching ingredient search
+# Determines the format of how each recipe is printed
+
 def display_recipe(recipe):
   print(recipe['Name'].title())
   print(" Time: " + str(recipe['Cooking Time (min)']) + " mins")
@@ -15,9 +18,15 @@ def search_ingredient(data):
 
   print('\n-------- Ingredients List --------\n')
 
+  # Enumerates all_ingredients to get index and adds 1
+  # Prints each ingredient in numbered list
+
   for i, ingredient in enumerate(all_ingredients):
     print(str(i+1) + ".) " + ingredient.title())
   
+  # Prompts user to enter which ingredient they want to search
+  # Uses associated number in list then subtracts 1 to find ingredient index
+
   try:
     while True:
       selection = int(input("\nWhich ingredient will you like to search? "))
@@ -40,6 +49,9 @@ def search_ingredient(data):
 # Prompt user to enter name of file with recipe data
 
 filename = input('\n  What file would you like to search for recipes? ')
+
+# Attempts to open specified folder
+# Loads content into data and then passes it to search_ingredient()
 
 while True:
 
