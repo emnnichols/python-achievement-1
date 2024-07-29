@@ -17,6 +17,7 @@ Users should be able to create and modify recipes with ingredients, cooking time
 - [Exercise 1.1](/#exercise-1--getting-started-with-python)
 - [Exercise 1.2](/#exercise-2--data-types-in-python)
 - [Exercise 1.3](/#exercise-3--operators-and-functions-in-python)
+- [Exercise 1.4](/#exercise-4--file-handling-in-python)
 
 ### Exercise 1 | Getting Started with Python
 
@@ -253,6 +254,195 @@ Users should be able to create and modify recipes with ingredients, cooking time
       <summary>Screenshot</summary>
       
     ![Screenshot of Ingredient Lists](/Exercise%201.3/Step%207_Show%20ingredients_list.png)
+    
+    </details>
+
+  </details>
+
+### Exercise 4 | File Handling in Python
+
+- Create script for user input and storing recipes in local file
+- Create script for user to search recipes
+
+  <details>
+
+  <summary>File Structures</summary>
+  
+  * Each recipe inputed by the user has the following structure:
+    
+    `{'Name': str, 'Cooking Time:' int, 'Ingredients': [list]}, 'Difficulty': str`
+  
+  * Each recipe entered by the user will be added to `recipes_list` and new ingredients will be added to `ingredients_list`
+  * Both lists will be added to a dictionary with the variable `data`
+  
+  </details>
+
+  <details>
+  
+  <summary>Part 1 (input script): Step-by-Step</summary>
+  
+  #### Step 1: Creating recipe_input.py and import pickle
+  * Creating a Python script in VSCode
+  * Import the `pickle` module
+  
+    <details>
+    
+      <summary>Screenshot</summary>
+      
+    ![Screenshot of Import](/Exercise%201.4/Part%201%20-%20recipe_input.py/Part%201_Step%201.png)
+    
+    </details>
+  
+  #### Step 2: Define `take_recipe` function
+  * Gathers user input for `Name`, `Cooking Time`, and `Ingredients` variables
+  * Calls the `calc_difficulty()` function to determine recipe difficulty level
+  * Returns completed recipe as a dictionary
+  
+    <details>
+      <summary>Screenshot</summary>
+    
+    ![Screenshot of Function](/Exercise%201.4/Part%201%20-%20recipe_input.py/Part%201_Step%202.png)
+    
+    </details>
+  
+  #### Step 3: Define `calc_difficulty` function
+  * Checks each recipe for cooking time and ingredients to set difficulty level
+    * **easy**: < 10 mins and < 4 ingredients
+    * **medium**: < 10 mins and >= 4 ingredients
+    * **intermediate**: >= 10 mins and < 4 ingredients
+    * **hard**: >= 10 mins and >= 4 ingredients
+  
+    <details>
+      <summary>Screenshot</summary>
+      
+    ![Screenshot of Difficulty Calculation](/Exercise%201.4/Part%201%20-%20recipe_input.py/Part%201_Step%203.png)
+    
+    </details>
+  
+  #### Step 4: Open file or Create new dictionary
+  * Asks user to input what file they would like to open
+  * If file does not exist, or an error occurs, a new dictionary is created
+  * Uses `try-except-else-finally` block
+    * `try`: Opening file specified by user and load data via `pickle.load()`
+    * `except`: Handles FileNotFoundError and other exceptions by alerting user and creating new dictionary
+    * `else`: Closes file stream of file opened in `try` block
+    * `finally`: Extracts dictionary data into `recipes_list` and `all_ingredients`
+
+    <details>
+      <summary>Screenshot</summary>
+      
+    ![Screenshot of Try Except block](/Exercise%201.4/Part%201%20-%20recipe_input.py/Part%201_Step%204.png)
+    
+    </details>
+
+  #### Step 5: Define `for` loop
+  * Prompts user for how many recipes to add
+  * Runs `for` loop to call `take_recipe` `n` amount of times
+  * Appends each recipe to `recipes_list`
+  * Inner loop that checks `all_ingredients` and adds new ingredients
+  
+    <details>
+      <summary>Screenshot</summary>
+      
+    ![Screenshot of Ingredient Lists](/Exercise%201.4/Part%201%20-%20recipe_input.py/Part%201_Step%205.png)
+    
+    </details>
+
+  #### Step 6 and 7: Gather updated lists and write into file
+  * Adds updated `recipes_list` and `all_ingredients` into new dictionary, `data`
+  * Opens binary file and writes `data` via `pickle.dump()`
+  
+    <details>
+      <summary>Screenshot</summary>
+      
+    ![Screenshot of Ingredient Lists](/Exercise%201.4/Part%201%20-%20recipe_input.py/Part%201_Step%206-7.png)
+    
+    </details>
+
+  </details>
+
+    <details>
+  
+  <summary>Part 2 (search script): Step-by-Step</summary>
+  
+  #### Step 1: Creating recipe_search.py and import pickle
+  * Creating a Python script in VSCode
+  * Import the `pickle` module
+  
+    <details>
+    
+      <summary>Screenshot</summary>
+      
+    ![Screenshot of Import](/Exercise%201.4/Part%202%20-%20recipe_search.py/Part%202_Step%201.png)
+    
+    </details>
+  
+  #### Step 2: Define `display_recipe` function
+  * Takes a `recipe` dictionary as an argument
+  * Prints all the recipe attributes in the following format:
+
+  ```
+  Recipe Name
+  Time: cooking time in mins
+  Difficulty: difficulty lvl
+  Ingredients: 
+  - ingredient
+  ```
+    <details>
+      <summary>Screenshot</summary>
+    
+    ![Screenshot of Function](/Exercise%201.4/Part%202%20-%20recipe_search.py/Part%202_Step%202.png)
+    
+    </details>
+  
+  #### Step 3: Define `search_ingredient` function
+  * Takes `data` as an argument from loaded file
+  * Prints all ingredients to the user with the format:
+    * Sorts list alphabetically
+    * Enumerates list in order to index each ingredient
+
+    ```Ingredients List
+    1.) ingredient 
+    2.) ingredient 
+    ....
+    n.) ingredient
+    ```
+  * Implements `try-except` block
+    * `try`: User inputs ingredient # they want to search and stores selection
+    * `except`: User is alerted to invalid input
+    * `else`: Takes selected ingredient and scans through the ingredients of each recipe then prints the found recipes
+
+    <details>
+      <summary>Screenshot</summary>
+      
+    ![Screenshot of Function](/Exercise%201.4/Part%202%20-%20recipe_search.py/Part%202_Step%203.png)
+    
+    </details>
+  
+  #### Step 4: Prompt user for recipe data file
+  * Asks user to input what file they would like to open
+
+    <details>
+      <summary>Screenshot</summary>
+      
+    ![Screenshot of Opening File](/Exercise%201.4/Part%202%20-%20recipe_search.py/Part%202_Step%204.png)
+    
+    </details>
+
+  #### Step 5, 6, and 7: Implement `try-except-else` block
+  * `try`: attempts to open the file specified by user
+    * Extracts content into `data` via `pickle.load()`
+  * `except`: warns user that the file wasn't found
+  * `else`: calls the `search_ingredient` function while passing `data` as an argument
+  
+    <details>
+      <summary>Screenshot</summary>
+      
+    ![Screenshot of Try Block](/Exercise%201.4/Part%202%20-%20recipe_search.py/Part%202_Step%205.png)
+    
+    ![Screenshot of Except Block](/Exercise%201.4/Part%202%20-%20recipe_search.py/Part%202_Step%206.png)
+    
+    ![Screenshot of Else Block](/Exercise%201.4/Part%202%20-%20recipe_search.py/Part%202_Step%207.png)
     
     </details>
 
