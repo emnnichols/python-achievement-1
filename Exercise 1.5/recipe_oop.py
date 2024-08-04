@@ -119,6 +119,6 @@ print(f"{20*'-'} \n RECIPES LIST \n{20*'-'}")
 for recipe in recipes_list:
   print(recipe)
 
-Recipe.recipe_search(recipes_list, "milk")
+Recipe.recipe_search(recipes_list, "water")
 Recipe.recipe_search(recipes_list, "sugar")
 Recipe.recipe_search(recipes_list, "bananas")

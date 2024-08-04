@@ -18,6 +18,7 @@ Users should be able to create and modify recipes with ingredients, cooking time
 - [Exercise 1.2](/#exercise-2--data-types-in-python)
 - [Exercise 1.3](/#exercise-3--operators-and-functions-in-python)
 - [Exercise 1.4](/#exercise-4--file-handling-in-python)
+- [Exercise 1.5](/#exercise-5--oop-in-python)
 
 ### Exercise 1 | Getting Started with Python
 
@@ -445,5 +446,64 @@ Users should be able to create and modify recipes with ingredients, cooking time
     ![Screenshot of Else Block](/Exercise%201.4/Part%202%20-%20recipe_search.py/Part%202_Step%207.png)
     
     </details>
+
+  </details>
+
+### Exercise 5 | OOP in Python
+
+- Create script that defines a custom class named Recipe
+- Use class to generate recipe objects
+
+  <details>
+  
+  <summary>Step-by-Step</summary>
+  
+  #### Step 1: Define custom Recipe class
+  * Defining custom class with the following data attributes:
+    * `name`, `ingredients`, `cooking_time`, `difficulty`
+  
+  #### Step 2: Define procedural attributes for `Recipe`
+  * For recipe name:
+    * `get_name(self)`
+    * `set_name(self, name)`
+  * For cooking time:
+    * `get_cooking_time(self)`
+    * `set_cooking_time(self, time)`
+  * For ingredients:
+    * `add_ingredients(self, *ingredients)`
+    * `update_all_ingredients(self)`
+    * `get_ingredients(self)`
+    * `search_ingredients(self, ingredient)`
+  * For difficulty level:
+    * `calculate_difficulty(self, time, ingredients)`
+    * `get_difficulty(self)`
+  
+  #### Step 3: Define `recipe_search` method
+  * Parameters for this method include `data` and `search_term`
+  * Uses a `for` loop to search recipe objects to find recipes containing `search_term`
+  
+  #### Step 4: Generate recipe objects
+  * Using `Recipe` class, four recipes were generated and initialized with with a name
+  * Cooking time, difficulty, and ingredients are added after intializing
+
+  #### Step 5: Wrap recipes into a list
+  * Utilizes `extend()` method to add recipes to list
+
+  #### Step 6: Using `recipe_search` method
+  * Search recipes for ingredients: `water`, `sugar`, `bananas`
+
+  </details>
+
+  <details>
+
+  <summary>Script Execution</summary>
+
+  ![Screenshot of Recipes](/Exercise%201.5/recipe_objects.png)
+
+  ![Screenshot of Search](/Exercise%201.5/recipe_search_water.png)
+
+  ![Screenshot of Search](/Exercise%201.5/recipe_search_sugar.png)
+
+  ![Screenshot of Search](/Exercise%201.5/recipe_search_bananas.png)
 
   </details>
