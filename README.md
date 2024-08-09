@@ -19,6 +19,7 @@ Users should be able to create and modify recipes with ingredients, cooking time
 - [Exercise 1.3](/#exercise-3--operators-and-functions-in-python)
 - [Exercise 1.4](/#exercise-4--file-handling-in-python)
 - [Exercise 1.5](/#exercise-5--oop-in-python)
+- [Exercise 1.6](/#exercise-6--databases-in-python)
 
 ### Exercise 1 | Getting Started with Python
 
@@ -510,11 +511,10 @@ Users should be able to create and modify recipes with ingredients, cooking time
 
 ### Exercise 6 | Databases in Python
 
-- Create script that allows users to:
-  - Create recipes that are then stored in a database
-  - Search recipes in the database by ingredient
-  - Update/modify recipes in the database
-  - Delete recipes from the database
+- Create recipes that are then stored in a database
+- Search recipes in the database by ingredient
+- Update/modify recipes in the database
+- Delete recipes from the database
 
   <details>
   
