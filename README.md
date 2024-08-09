@@ -507,3 +507,81 @@ Users should be able to create and modify recipes with ingredients, cooking time
   ![Screenshot of Search](/Exercise%201.5/recipe_search_bananas.png)
 
   </details>
+
+### Exercise 6 | Databases in Python
+
+- Create script that allows users to:
+  - Create recipes that are then stored in a database
+  - Search recipes in the database by ingredient
+  - Update/modify recipes in the database
+  - Delete recipes from the database
+
+  <details>
+  
+  <summary>Step-by-Step</summary>
+  
+  #### Step 1: Create and Connect Database
+  * Import `mysql.connector` module
+  * Initialize connection object and a cursor object
+  * Create database called `task_database`
+  * Create table called `Recipes` to hold recipe info:
+    * `id` is an integer and increments automatically
+    * `name` is a string and has limit of 50 characters
+    * `ingredients` is a string and has limit of 255 characters, stores ingredients as a string
+    * `cooking_time` is an integer
+    * `difficulty` is a string and has a limit of of 20 characters
+  
+  #### Step 2: Create Main Menu
+  * Defines function `main_menu` that calls the following functions:
+    * `create_recipe`
+    * `search_recipe`
+    * `update_recipe`
+    * `delete_function`
+  * Presents menu to user that assigns number to each option
+  * User inputs number associated with task and main menu calls that function
+  * Users can also exit the loop that then closes the connection and ends the program
+  
+  #### Step 3: Define `create_recipe` function
+  * Prompts user to enter recipe name, cooking time, and ingredrients
+  * The `calculate_difficulty` is called and the ingredients are joined into a string
+  * INSERT query is then executed to add recipe to table
+  
+  #### Step 4: Define `search_recipe` function
+  * Gathers ingredients from recipe database using SELECT on the ingredients column
+  * Adds each unique ingredient found to a list, `all_ingredients`
+  * Numerates this list and prints to the user for selection
+  * Stores selected ingredient into a variable to use in a WHERE statement
+
+  #### Step 5: Define `update_recipe` function
+  * Prints a list of the recipes to user that includes recipes ID
+  * Prompts user to enter ID of recipe they want to modify
+  * Then gives them a list of what column/fields they can update
+    * Prompts user to input what field they would like to modify
+    * Then asks for new value
+
+  #### Step 6: Define `delete_recipe` function
+  * Prints a list of the recipes to user that includes recipes ID
+  * Prompts user to enter ID of recipe they want to delete
+  * Checks if ID exists and then uses DELETE query on table to delete recipe row
+
+  </details>
+
+  <details>
+
+  <summary>Script Execution</summary>
+
+  ![Screenshot of Recipe Creation](/Exercise%201.6/create%20recipe_1.png)
+
+  ![Screenshot of Recipe Creation](/Exercise%201.6/create%20recipe_2.png)
+
+  ![Screenshot of Recipe Creation](/Exercise%201.6/create%20recipe_3.png)
+
+  ![Screenshot of Recipe Creation](/Exercise%201.6/search%20ingredients.png)
+
+  ![Screenshot of Recipe Creation](/Exercise%201.6/update%20recipe_1.png)
+
+  ![Screenshot of Recipe Creation](/Exercise%201.6/update%20recipe_2.png)
+
+  ![Screenshot of Recipe Creation](/Exercise%201.6/delete%20recipe%20+%20exit.png)
+
+  </details>
