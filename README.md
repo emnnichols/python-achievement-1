@@ -20,6 +20,7 @@ Users should be able to create and modify recipes with ingredients, cooking time
 - [Exercise 1.4](/#exercise-4--file-handling-in-python)
 - [Exercise 1.5](/#exercise-5--oop-in-python)
 - [Exercise 1.6](/#exercise-6--databases-in-python)
+- [Exercise 1.7](/#exercise-7--object-relational-mapping-in-python)
 
 ### Exercise 1 | Getting Started with Python
 
@@ -583,5 +584,106 @@ Users should be able to create and modify recipes with ingredients, cooking time
   ![Screenshot of Recipe Creation](/Exercise%201.6/update%20recipe_2.png)
 
   ![Screenshot of Recipe Creation](/Exercise%201.6/delete%20recipe%20+%20exit.png)
+
+  </details>
+
+### Exercise 7 | Object Relational Mapping in Python
+
+- Create final recipe app
+- Utilize SQLAlchemy's ORM tool to create Recipe table
+
+  <details>
+  
+  <summary>Step-by-Step</summary>
+  
+  #### Step 1: Set up Script + SQLAlchemy
+  * Create `recipe_app.py` script
+  * Import model definitions, `sessionmaker`, `declarative_base`
+  * Create `engine` object to connect to database
+  * Create `session` object to make changes to database
+  
+  #### Step 2: Create Model and Table
+  * Store declarative base class in `Base` variable
+  * `Recipe` class inherits `Base` class
+    * Defines table name attribute as `final_recipes`
+    * Defines the following columns:
+      * `id` - Integer, primary key, auto-increments
+      * `name` - String(50)
+      * `ingredients` - String(255), stored ingredients as a string
+      * `cooking_time` - Integer
+      * `difficulty` - String(20)
+    * Defines `__repr__` and `__str__` methods
+  * Define `calculate_difficulty` function
+  * Define function that retrieves the ingredients as a list
+
+  #### Step 3: Define Main Operations
+  * Define `create_recipe()`
+    * Collects recipe name, ingredients, and cooking_time from user
+    * Uses methods such as `isalpha()` to ensure appropriate inputs
+    * Asks user how many ingredients to enter
+      * Uses `for` loop to enter each ingredient
+      * Converts ingredients into a string
+    * Adds this recipe to Recipe table
+  
+  * Define `view_all_recipes()`
+    * Retrieves all recipes from database
+    * Informs user if no recipes were found
+    * Prints each recipe using defined `__str__` method
+  
+  * Define `search_by_ingredients()`
+    * Retrieves values from `ingredients` column of table
+    * Adds each unique ingredient to list
+    * Prints the result as a numbered list to the user
+    * User is prompted to pick which ingredient(s) to search
+    * List is created based on user input for search conditions
+    * Recipes are filtered using this `conditions` list
+  
+  * Define `edit_recipe()`
+    * Prints list of each recipes id and name
+    * Prompts user to choose a recipe to edit
+    * User is given option menu for what they would like to edit
+    * Recipe is updated with new value and difficulty is recalculated
+
+  * Define `delete_recipe()`
+    * Prints list of each recipes id and name
+    * Prompts user to choose which recipe to delete
+    * Asks if user is sure and requires a `Y/N` input
+    * If `Y`, recipe is deleted
+    * If `N`, recipe is kept and user is taken back to main menu
+
+  #### Step 4: Design Main Menu
+  * Main menu exists in `while` loop that gives the user 6 options:
+    * Create a Recipe
+    * View all Recipes
+    * Search for ingredients
+    * Edit a Recipe
+    * Delete a Recipe
+    * Exit
+  * Uses `if-elif` statements to check users input and call the associated function
+  * If user chooses to exit, application is stopped and session is closed / engine is disposed
+
+  </details>
+
+  <details>
+
+  <summary>Script Execution</summary>
+
+  ![Screenshot of Main Menu](/Exercise%201.7/main_menu.png)
+
+  ![Screenshot of Recipe Creation](/Exercise%201.7/recipe_creation.png)
+
+  ![Screenshot of All Recipes](/Exercise%201.7/view_all_recipes.png)
+
+  ![Screenshot of Recipe Update 1](/Exercise%201.7/update_recipe_1.png)
+
+  ![Screenshot of Recipe Update 2](/Exercise%201.7/update_recipe_2.png)
+
+  ![Screenshot of Ingredient Search 1](/Exercise%201.7/ingredient_search_1.png)
+
+  ![Screenshot of Ingredient Search 2](/Exercise%201.7/ingredient_search_2.png)
+
+  ![Screenshot of Ingredient Search 3](/Exercise%201.7/ingredient_search_3.png)
+
+  ![Screenshot of Recipe Deletion](/Exercise%201.7/delete_recipe.png)
 
   </details>
